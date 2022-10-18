@@ -4,7 +4,6 @@ from pathlib import Path
 def write_to_file(file_name:str, items:List[str]) -> None:
     with open(file_name, "a") as f_obj:
         for anchor in items:
-            print(f"Writing {anchor} to {file_name}")
             f_obj.write(f"{anchor}\n")
 
 def validate_parameters(validate: str, parameter: str) -> None:
