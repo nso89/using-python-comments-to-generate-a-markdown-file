@@ -7,7 +7,7 @@ Using Pyton Comments to Generate Markdown Anchors and Links
 
 #### <a name="prerequisites"></a>Prerequisites
 1. A completed install of `Python 3.x`.
-2. The `.md` file you want to convert.
+2. The `.py` or `.txt` file you want to convert.
 
 #### <a name="setup"></a>Setup
 1. Under your `USERPROFILE`, extract the `using-python-comments-to-generate-a-markdown-file.zip`.
