@@ -18,7 +18,7 @@ def write_to_file(file_name: str, items: List[str]) -> None:
 
 def validate_parameters(validate: str, parameter: str) -> None:
     """
-    Verify if a str is blank, if so, raise ValueError 
+    Verify if validate is blank, if so, raise ValueError 
     indicating the parameter cannot be blank.
 
     Args:
@@ -47,6 +47,9 @@ def check_for_function_names(verify: str) -> str:
     Returns:
     str - the string with the function name 
           (if any) properly quoted.
+          
+    Example:
+        Using title() becomes Using `title()`
     """
     return " ".join([f"`{word}`" if "()" in word else word for word in verify.split(" ")])
 
@@ -83,7 +86,18 @@ def main():
                     link = anchor.lower().replace(" ", "-")
                     anchors.append(f"- [{anchor}](#{link})")
                     section.append(f'#### <a name="{link}"></a> {anchor}:\n```{language}\n```')
-
+        
+         # Using the comments from example.py, the md file should be:
+         """
+         - [Using `print()`](#using-`print()`)
+         - [Using `type()`](#using-`type()`)
+        #### <a name="using-`print()`"></a> Using `print()`:
+        ```python
+        ```
+        #### <a name="using-`type()`"></a> Using `type()`:
+        ```python
+        ```     
+        """
         write_to_file(file_name = markdown_file_name, items = anchors)
         write_to_file(file_name = markdown_file_name, items = section)
 
