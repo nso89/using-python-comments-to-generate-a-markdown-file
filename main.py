@@ -89,14 +89,14 @@ def main():
         
          # Using the comments from example.py, the md file should be:
          """
-         - [Using `print()`](#using-`print()`)
-         - [Using `type()`](#using-`type()`)
-        #### <a name="using-`print()`"></a> Using `print()`:
-        ```python
-        ```
-        #### <a name="using-`type()`"></a> Using `type()`:
-        ```python
-        ```     
+            - [Using `print()`](#using-`print()`)
+            - [Using `type()`](#using-`type()`)
+            #### <a name="using-`print()`"></a> Using `print()`:
+            ```python
+            ```
+            #### <a name="using-`type()`"></a> Using `type()`:
+            ```python
+            ```     
         """
         write_to_file(file_name = markdown_file_name, items = anchors)
         write_to_file(file_name = markdown_file_name, items = section)
