@@ -24,6 +24,14 @@ C:\Users\nso89\using-python-comments-to-generate-a-markdown
 C:\Users\nso89\using-python-comments-to-generate-a-markdown\example.py
 ```
 
+3. In the `list.txt`, put all the words you wanted quoted. For functions include the `()`.
+
+**Example**:
+```
+print()
+type()
+```
+
 #### <a name="running-the-script"></a>Running the Script
 1. Open `cmd.exe` and change the directory to the `using-python-comments-to-generate-a-markdown-file` folder.
 
