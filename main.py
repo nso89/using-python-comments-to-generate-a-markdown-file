@@ -87,7 +87,7 @@ def main():
                     anchors.append(f"- [{anchor}](#{link})")
                     section.append(f'#### <a name="{link}"></a> {anchor}:\n```{language}\n```')
         
-        # Using the comments from example.py, the md file should be:
+        # Using the comments from example.py, the .md file should be:
         """
             - [Using `print()`](#using-`print()`)
             - [Using `type()`](#using-`type()`)
