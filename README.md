@@ -24,7 +24,7 @@ C:\Users\nso89\using-python-comments-to-generate-a-markdown
 C:\Users\nso89\using-python-comments-to-generate-a-markdown\example.py
 ```
 
-3. In the `list.txt`, put all the words you wanted quoted. For functions include the `()`.
+3. In the `list.txt`, put all the words you wanted quoted. For functions, include the `()`.
 
 **Example**:
 ```
