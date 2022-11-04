@@ -23,7 +23,7 @@ def validate_parameters(validate: str, parameter: str) -> None:
 
     Args:
     validate: str - the string we're checking.
-    parameter: str - what validate represents.
+    parameter: str - what the str represents.
 
     Returns:
     None
@@ -34,7 +34,7 @@ def validate_parameters(validate: str, parameter: str) -> None:
 def check_for_function_names(verify: str) -> str:
     """
     Using a for loop with str.split(), we check 
-    each word in verify for brackets, indicating 
+    if verify ends with brackets, indicating 
     the word represents a function. If we find 
     brackets, we surround the word with 
     backquotes, append it to a list, and use 
@@ -49,9 +49,9 @@ def check_for_function_names(verify: str) -> str:
           (if any) properly quoted.
           
     Example:
-        Using title() becomes Using `title()`
+    Using title() becomes Using `title()`
     """
-    return " ".join([f"`{word}`" if "()" in word else word for word in verify.split(" ")])
+    return " ".join([f"`{word}`" if word.endswith("()") else word for word in verify.split(" ")])
 
 def main():
     
