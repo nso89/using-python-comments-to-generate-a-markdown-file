@@ -46,7 +46,7 @@ def validate_parameters(validate: str, parameter: str) -> None:
     if not validate:
         raise ValueError(f"{parameter} cannot be blank!")
 
-def convert_keywords_to_markdown_syntax(keywords : set[str], verify: str) -> str:
+def convert_keywords_to_markdown_syntax(keywords : set[str], verify : str) -> str:
     """
     Check a string against a set of keywords, if the string exists, add 
     backquotes, and append it to the list. If the word doesn't exist, just 
