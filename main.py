@@ -58,6 +58,9 @@ def convert_keywords_to_markdown_syntax(keywords : set[str], verify : str) -> st
 
     Returns:
         Using .join(), we return our string properly quoted.
+        
+    Example:
+        Using title() becomes Using `title()`
     """
     return " ".join([f"`{word}`" if word in keywords else word for word in verify.split(" ")])
 
