@@ -10,18 +10,18 @@ Using Pyton Comments to Generate Markdown Anchors and Links
 2. The `.py` or `.txt` file you want to convert.
 
 #### <a name="setup"></a>Setup
-1. Under your `USERPROFILE`, extract the `using-python-comments-to-generate-a-markdown-file.zip`.
+1. Under your `USERPROFILE`, extract the `using-python-comments-to-generate-a-markdown-file-main.zip`.
 
 **Example**:
 ```batch
-C:\Users\nso89\using-python-comments-to-generate-a-markdown
+C:\Users\nso89\using-python-comments-to-generate-a-markdown-main
 ```
 
 2. Place the `.py` or `.txt` file you want to convert in the `using-python-comments-to-generate-a-markdown` folder.
 
 **Example**:
 ```batch
-C:\Users\nso89\using-python-comments-to-generate-a-markdown\example.py
+C:\Users\nso89\using-python-comments-to-generate-a-markdown-main\example.py
 ```
 
 3. In the `list.txt`, put all the words you wanted quoted. For functions, include the `()`.
@@ -33,16 +33,16 @@ type()
 ```
 
 #### <a name="running-the-script"></a>Running the Script
-1. Open `cmd.exe` and change the directory to the `using-python-comments-to-generate-a-markdown-file` folder.
+1. Open `cmd.exe` and change the directory to the `using-python-comments-to-generate-a-markdown-file-main` folder.
 
 **Example**:
 ```batch
-C:\Users\nso89>cd using-python-comments-to-generate-a-markdown-file
+C:\Users\nso89>cd using-python-comments-to-generate-a-markdown-file-main
 ```
 
 2. Start the `main.py` script.
 ```batch
-C:\Users\nso89\using-python-comments-to-generate-a-markdown-file>python main.py
+C:\Users\nso89\using-python-comments-to-generate-a-markdown-file-main>python main.py
 ```
 
 3. It asks you for the file name:
@@ -56,5 +56,5 @@ File: example.py
 
 **Example**:
 ```batch
-C:\Users\nso89\using-python-comments-to-generate-a-markdown\example.md
+C:\Users\nso89\using-python-comments-to-generate-a-markdown-main\example.md
 ```
