@@ -86,19 +86,19 @@ def main():
         section : List[str] = []
 
         with open(file_name, mode = "r") as f_obj:
-            for anchor_with_spaces in f_obj:
+            for comment_with_spaces in f_obj:
                 # If we're reading a .py file, the code is indented by 4 spaces,
                 # which we have to remove, so that we can use startsiwth(). We
                 # can use in, but this doesn't mean the # is at the beginning of the
                 # str.
-                anchor = anchor_with_spaces.strip()
-                if anchor.startswith("#") and anchor.endswith(":"):
+                comment = comment_with_spaces.strip()
+                if comment.startswith("#") and comment.endswith(":"):
                     # If we find the # at the start and : at the end, we slice it out.
-                    anchor = anchor[2:][:-1]
-                    anchor = convert_keywords_to_markdown_syntax(keywords = keywords, verify = anchor)
-                    link = anchor.lower().replace(" ", "-")
-                    anchors.append(f"- [{anchor}](#{link})")
-                    section.append(f'#### <a name="{link}"></a> {anchor}:\n```{language}\n```')
+                    comment = comment[2:][:-1]
+                    comment = convert_keywords_to_markdown_syntax(keywords = keywords, verify = comment)
+                    link = comment.lower().replace(" ", "-")
+                    anchors.append(f"- [{comment}](#{link})")
+                    section.append(f'#### <a name="{link}"></a> {comment}:\n```{language}\n```')
 
         # Using the comments from example.py, the .md file should be:
         """
