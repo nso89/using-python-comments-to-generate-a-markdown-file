@@ -75,6 +75,9 @@ def main():
 
         validate_parameters(validate = file_name, parameter = "File Name")
 
+        COMMENT : str  = "#"
+        COLON : str = ":"
+
         # Using .stem will give use the file name without the extension,
         # allowing us to join .md to the file name.
         markdown_file_name = ".".join([Path(file_name).stem, "md"])
@@ -92,22 +95,22 @@ def main():
                 # can use in, but this doesn't mean the # is at the beginning of the
                 # str.
                 comment = comment_with_spaces.strip()
-                if comment.startswith("#") and comment.endswith(":"):
+                if comment.startswith(COMMENT) and comment.endswith(COLON):
                     # If we find the # at the start and : at the end, we slice it out.
                     comment = comment[2:][:-1]
-                    comment = convert_keywords_to_markdown_syntax(keywords = keywords, verify = comment)
                     link = comment.lower().replace(" ", "-")
+                    comment = convert_keywords_to_markdown_syntax(keywords = keywords, verify = comment)
                     anchors.append(f"- [{comment}](#{link})")
                     section.append(f'#### <a name="{link}"></a> {comment}:\n```{language}\n```')
 
         # Using the comments from example.py, the .md file should be:
         """
-            - [Using `print()`](#using-`print()`)
-            - [Using `type()`](#using-`type()`)
-            #### <a name="using-`print()`"></a> Using `print()`:
+            - [Using `print()`](#using-print())
+            - [Using `type()`](#using-type())
+            #### <a name="using-print()"></a> Using `print()`:
             ```python
             ```
-            #### <a name="using-`type()`"></a> Using `type()`:
+            #### <a name="using-type()"></a> Using `type()`:
             ```python
             ```     
         """
