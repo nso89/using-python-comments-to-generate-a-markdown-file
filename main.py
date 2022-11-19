@@ -1,6 +1,12 @@
 from typing import List
 from pathlib import Path
 
+
+LANGUAGE = "python"
+HASHTAG : str  = "#"
+COLON : str = ":"
+
+
 def get_keywords_from(file_name : str) -> List[str]:
     """
     Read words from a file, strip and append to a 
@@ -15,6 +21,7 @@ def get_keywords_from(file_name : str) -> List[str]:
     with open(file_name, "r") as f_obj:
         lines = [word.strip() for word in f_obj.readlines()]
     return lines
+
 
 def write_to_file(file_name: str, items: List[str]) -> None:
     """
@@ -31,6 +38,7 @@ def write_to_file(file_name: str, items: List[str]) -> None:
         for item in items:
             f_obj.write(f"{item}\n")
 
+
 def validate_parameters(validate: str, parameter: str) -> None:
     """
     Verify if validate is blank, if so, raise ValueError 
@@ -45,6 +53,20 @@ def validate_parameters(validate: str, parameter: str) -> None:
     """
     if not validate:
         raise ValueError(f"{parameter} cannot be blank!")
+
+
+def validate_file_type(*acceptable_exts : tuple[str], file_name: Path) -> None:
+    """
+    Check if the file ends with one of the acceptable extensions.
+
+    Args:
+        *acceptable_exts : tuple[str] - the tuple containing all the acceptable
+                                        extensions.
+        file_name: Path - the file_name were checking.                                        
+    """
+    if file_name.suffix not in acceptable_exts:
+        raise ValueError("Unacceptable file type!")
+
 
 def convert_keywords_to_markdown_syntax(keywords : set[str], verify : str) -> str:
     """
@@ -64,23 +86,23 @@ def convert_keywords_to_markdown_syntax(keywords : set[str], verify : str) -> st
     """
     return " ".join([f"`{word}`" if word in keywords else word for word in verify.split(" ")])
 
+
 def main():
-
+ 
     try:
+
+        unclean_file_name = input("File Path: ")
+        validate_parameters(validate = unclean_file_name, parameter = "File Name")
+
+        file_name = Path.home().joinpath(unclean_file_name)
         
-        keywords = set(get_keywords_from(file_name = "list.txt"))
-
-        file_name = input("File: ")
-        language = "python"
-
-        validate_parameters(validate = file_name, parameter = "File Name")
-
-        COMMENT : str  = "#"
-        COLON : str = ":"
+        validate_file_type(".txt",".py", file_name = file_name)
 
         # Using .stem will give use the file name without the extension,
         # allowing us to join .md to the file name.
-        markdown_file_name = ".".join([Path(file_name).stem, "md"])
+        markdown_file_name = ".".join([str(file_name.parent.joinpath(file_name.stem)), "md"])
+        
+        keywords = set(get_keywords_from(file_name = "list.txt"))
 
         # The links at the top of the markdown file.
         anchors : List[str] = []
@@ -95,13 +117,13 @@ def main():
                 # can use in, but this doesn't mean the # is at the beginning of the
                 # str.
                 comment = comment_with_spaces.strip()
-                if comment.startswith(COMMENT) and comment.endswith(COLON):
+                if comment.startswith(HASHTAG) and comment.endswith(COLON):
                     # If we find the # at the start and : at the end, we slice it out.
                     comment = comment[2:][:-1]
                     link = comment.lower().replace(" ", "-")
                     comment = convert_keywords_to_markdown_syntax(keywords = keywords, verify = comment)
                     anchors.append(f"- [{comment}](#{link})")
-                    section.append(f'#### <a name="{link}"></a> {comment}:\n```{language}\n```')
+                    section.append(f'#### <a name="{link}"></a> {comment}:\n```{LANGUAGE}\n```')
 
         # Using the comments from example.py, the .md file should be:
         """
@@ -119,6 +141,6 @@ def main():
 
     except(ValueError, FileNotFoundError) as e:
         print(e)
-    
+
 if __name__ == "__main__":
     main()
