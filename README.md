@@ -38,16 +38,17 @@ C:\Users\nso89>cd using-python-comments-to-generate-a-markdown-file-main
 C:\Users\nso89\using-python-comments-to-generate-a-markdown-file-main>python main.py
 ```
 
-3. It asks you for the file name:
+3. It asks you for the file name (if the file is in a different folder, provide the complete path to the file):
 
 **Example**:
 ```batch
 File: example.py
 ```
 
-4. The `main.py` script generates the `example.md` file.
+4. The `main.py` script generates the `example.md` file (the .md file will be generated in the same folder as the .py file).
 
 **Example**:
 ```batch
+# 
 C:\Users\nso89\using-python-comments-to-generate-a-markdown-main\example.md
 ```
