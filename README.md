@@ -49,5 +49,5 @@ File: Projects\python-cheatsheet\example.py
 
 **Example**:
 ```batch
-C:\Users\nso89\using-python-comments-to-generate-a-markdown-main\example.md
+C:\Users\nso89\Projects\python-cheatsheet\example.md
 ```
