@@ -62,7 +62,7 @@ def validate_file_type(*acceptable_exts : tuple[str], file_name: Path) -> None:
     Args:
         *acceptable_exts : tuple[str] - the tuple containing all the acceptable
                                         extensions.
-        file_name: Path - the file_name were checking.                                        
+        file_name: Path - the file name were checking.                                        
     """
     if file_name.suffix not in acceptable_exts:
         raise ValueError("Unacceptable file type!")
