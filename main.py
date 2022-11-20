@@ -68,7 +68,7 @@ def validate_file_type(*acceptable_exts : tuple[str], file_name: Path) -> None:
         raise ValueError("Unacceptable file type!")
 
 
-def convert_keywords_to_markdown_syntax(keywords : set[str], verify : str) -> str:
+def convert_comment_to_markdown_syntax(keywords : set[str], verify : str) -> str:
     """
     Check a string against a set of keywords, if the string exists, add 
     backquotes, and append it to the list. If the word doesn't exist, just 
@@ -120,10 +120,10 @@ def main():
                 if comment.startswith(HASHTAG) and comment.endswith(COLON):
                     # If we find the # at the start and : at the end, we slice it out.
                     comment = comment[2:][:-1]
+                    anchor = convert_comment_to_markdown_syntax(keywords = keywords, verify = comment)
                     link = comment.lower().replace(" ", "-")
-                    comment = convert_keywords_to_markdown_syntax(keywords = keywords, verify = comment)
-                    anchors.append(f"- [{comment}](#{link})")
-                    section.append(f'#### <a name="{link}"></a> {comment}:\n```{LANGUAGE}\n```')
+                    anchors.append(f"- [{anchor}](#{link})")
+                    section.append(f'#### <a name="{link}"></a> {anchor}:\n```{LANGUAGE}\n```')
 
         # Using the comments from example.py, the .md file should be:
         """
