@@ -17,7 +17,7 @@ Using Pyton Comments to Generate Markdown Anchors and Links
 C:\Users\nso89\using-python-comments-to-generate-a-markdown-main
 ```
 
-2. In the `list.txt`, put all the words you wanted quoted. For functions, include the `()`.
+2. In the `list.txt`, put all the words you wanted quoted (no particular order). For functions, include the `()`.
 
 **Example**:
 ```
@@ -38,11 +38,11 @@ C:\Users\nso89>cd using-python-comments-to-generate-a-markdown-file-main
 C:\Users\nso89\using-python-comments-to-generate-a-markdown-file-main>python main.py
 ```
 
-3. It asks you for the file name (if the `file` is in a different folder, provide the complete path to the `file`):
+3. Suppose the path to your `.py` file is `C:\Users\username\Projects\python-cheatsheet\example.py`, just provide the path without the `USERPROFILE`. 
 
 **Example**:
 ```batch
-File: example.py
+File: Projects\python-cheatsheet\example.py
 ```
 
 4. The `main.py` script generates the `example.md` file (the `.md` file will be generated in the same folder as the `.py` file).
