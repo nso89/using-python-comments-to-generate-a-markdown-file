@@ -68,7 +68,7 @@ def validate_file_type(*acceptable_exts : tuple[str], file_name: Path) -> None:
         raise ValueError("Unacceptable file type!")
 
 
-def convert_word_to_markdown_syntax(keywords : set[str], word : str) -> str:
+def convert_word_to_markdown_syntax(keywords : set[str], words : str) -> str:
     """
     Check a string against a set of keywords, if the string exists, add 
     backquotes, and append it to the list. If the word doesn't exist, just 
@@ -76,7 +76,7 @@ def convert_word_to_markdown_syntax(keywords : set[str], word : str) -> str:
 
     Args:
         keywords : set[str] - the set containing our keywords.
-        word : str - the word were checking for in our set.
+        words : str - the word were checking for in our set.
 
     Returns:
         Using .join(), we return our string properly quoted.
@@ -84,7 +84,7 @@ def convert_word_to_markdown_syntax(keywords : set[str], word : str) -> str:
     Example:
         Using title() becomes Using `title()`
     """
-    return " ".join([f"`{word}`" if word in keywords else word for word in verify.split(" ")])
+    return " ".join([f"`{word}`" if word in keywords else word for word in words.split(" ")])
 
 
 def main():
@@ -110,7 +110,7 @@ def main():
                 comment = comment_with_spaces.strip()
                 if comment.startswith(HASHTAG) and comment.endswith(COLON):
                     comment = comment[2:][:-1]
-                    anchor = convert_word_to_markdown_syntax(keywords = keywords, word = comment)
+                    anchor = convert_word_to_markdown_syntax(keywords = keywords, words = comment)
                     link = comment.lower().replace(" ", "-")
                     anchors.append(f"- [{anchor}](#{link})")
                     section.append(f'#### <a name="{link}"></a> {anchor}:\n```{LANGUAGE}\n```')
