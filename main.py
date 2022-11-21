@@ -70,13 +70,13 @@ def validate_file_type(*acceptable_exts : tuple[str], file_name: Path) -> None:
 
 def convert_word_to_markdown_syntax(keywords : set[str], words : str) -> str:
     """
-    Check a string against a set of keywords, if the string exists, add 
-    backquotes, and append it to the list. If the word doesn't exist, just 
-    append to the list. 
+    Split and check each string against a set of keywords, if the string 
+    exists, add backquotes, and append it to the list. If the word doesn't 
+    exist, just append to the list. 
 
     Args:
         keywords : set[str] - the set containing our keywords.
-        words : str - the word were checking for in our set.
+        words : str - the word we split and use in the for loop.
 
     Returns:
         Using .join(), we return our string properly quoted.
