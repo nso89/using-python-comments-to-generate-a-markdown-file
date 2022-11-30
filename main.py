@@ -92,6 +92,8 @@ def main():
     try:
 
         unclean_file_name = input("File Path: ")
+        unclean_file_name = unclean_file_name.strip()
+        
         validate_parameters(validate = unclean_file_name, parameter = "File Name")
 
         file_name = Path.home().joinpath(unclean_file_name)
