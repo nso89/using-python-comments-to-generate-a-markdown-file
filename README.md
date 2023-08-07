@@ -11,10 +11,10 @@ Using Pyton Comments to Generate Markdown Anchors and Links.
 
 Formatted Comments:
 ```
-Using function_name()
-Using an empty collection_type
-Using collection_type with elements
-Using collection_type Comprehension
+Using function_name():
+Using an empty collection_type:
+Using collection_type with elements:
+Using collection_type Comprehension:
 ```
 
 #### <a name="setup"></a>Setup
