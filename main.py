@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import List, NamedTuple
+from typing import List
 import itertools
 
 
@@ -33,6 +33,9 @@ def validate_file_type(file_name: Path, acceptable_ext: str = ".py") -> None:
 
 
 def parse(elements: List[str], words: str, index: int) -> str:
+    """
+    Check if the file ends with one of the acceptable extensions.                                     
+    """
     keyword = elements[index]
     converted_word = words.replace(keyword, f"`{keyword}`")
     return converted_word
@@ -103,7 +106,8 @@ def main():
         anchors_with_sections = itertools.chain(anchors, sections)
         write_to_file(file_name = markdown_file_name, items = anchors_with_sections)
 
-        print(f"Unable to parse: {not_safe_to_parse}" )
+        if not_safe_to_parse:
+            print(f"Unable to parse: {not_safe_to_parse}" )
     
     except (ValueError, FileNotFoundError) as e:
         print(e)
