@@ -14,14 +14,14 @@ def read_from(file: Path) -> str:
             yield line.strip()
 
 
-def validate_parameters(validate: str, parameter: str) -> None:
+def verify(parameter: str, name: str) -> None:
     """
-    Verify if validate is blank, if so, raise ValueError.
+    Verify if parameter is blank, if so, raise ValueError.
     """
-    if not validate:
-        raise ValueError(f"{parameter} cannot be blank!")
-    if validate.startswith(" ") or validate.endswith(" "):
-        raise ValueError(f"{parameter} cannot begin or end with an empty space!")
+    if not parameter or parameter == '""' or parameter == '" "':
+        raise ValueError(f"{name} cannot be blank!")
+    if parameter.startswith(" ") or parameter.endswith(" "):
+        raise ValueError(f"{name} cannot begin or end with an empty space!")
 
 
 def validate_file_type(file_name: Path, acceptable_ext: str = ".py") -> None:
