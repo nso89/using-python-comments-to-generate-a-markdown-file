@@ -22,18 +22,18 @@ def verify(parameter: str, name: str) -> None:
         raise ValueError(f"{name} cannot begin or end with an empty space!")
 
 
-def read_from(file: Path) -> str:
-    with open(file, mode = "r") as f_obj:
-        for line in f_obj:
-            yield line.strip()
-
-
 def validate_file_type(file_name: Path, acceptable_ext: str = ".py") -> None:
     """
     Check if the file ends with one of the acceptable extensions.                                     
     """
     if file_name.suffix != acceptable_ext:
         raise ValueError("Unacceptable file type!")
+
+
+def read_from(file: Path) -> str:
+    with open(file, mode = "r") as f_obj:
+        for line in f_obj:
+            yield line.strip()
 
 
 def parse(elements: List[str], words: str, index: int) -> str:
