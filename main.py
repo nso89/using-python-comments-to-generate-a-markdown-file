@@ -8,12 +8,6 @@ HASHTAG : str  = "#"
 COLON : str = ":"
 
 
-def read_from(file: Path) -> str:
-    with open(file, mode = "r") as f_obj:
-        for line in f_obj:
-            yield line.strip()
-
-
 def verify(parameter: str, name: str) -> None:
     """
     Verify if parameter is blank, if so, raise ValueError.
@@ -22,6 +16,12 @@ def verify(parameter: str, name: str) -> None:
         raise ValueError(f"{name} cannot be blank!")
     if parameter.startswith(" ") or parameter.endswith(" "):
         raise ValueError(f"{name} cannot begin or end with an empty space!")
+
+
+def read_from(file: Path) -> str:
+    with open(file, mode = "r") as f_obj:
+        for line in f_obj:
+            yield line.strip()
 
 
 def validate_file_type(file_name: Path, acceptable_ext: str = ".py") -> None:
@@ -80,8 +80,9 @@ def main():
     try:
 
         partial_py_file_path = input("File Path: ").strip()
+        verify(parameter = partial_py_file_path, name = "File Path")
+        
         complete_py_file_path = Path.home().joinpath(partial_py_file_path)
-
         validate_file_type(file_name = complete_py_file_path)
 
         markdown_file_name = complete_py_file_path.with_suffix(".md")
