@@ -114,7 +114,7 @@ def main():
         if not_safe_to_parse:
             print(f"Unable to parse: {not_safe_to_parse}" )
     
-    except (FileNotFoundError, ValueError) as e:
+    except (FileNotFoundError, OSError, ValueError) as e:
         print(e)
     
 if __name__ == "__main__":
