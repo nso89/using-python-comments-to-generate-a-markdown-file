@@ -1,5 +1,5 @@
 # using-python-comments-to-generate-a-markdown-file
-Using Pyton Comments to Generate Markdown Anchors and Links.
+Using Python Comments to Generate Markdown Anchors and Links.
 
 * [Prerequisites](#prerequisites)
 * [Setup](#setup)
