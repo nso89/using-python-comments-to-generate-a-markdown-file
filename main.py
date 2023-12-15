@@ -34,7 +34,7 @@ def read_from(file: Path) -> str:
 
 def parse(elements: List[str], words: str, index: int) -> str:
     """
-    Check if the file ends with one of the acceptable extensions.                                     
+    Using the index, locate a specific word, quote and replace it.                                     
     """
     keyword = elements[index]
     converted_word = words.replace(keyword, f"`{keyword}`")
